@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.yiciyuan.mapper.ClassifyMapper">
+	<!-- 查询一级目录名字 -->
+	<select id="queryOneLevelName"
+		resultType="cn.yiciyuan.pojo.Classify">
+		SELECT * FROM shop_classify WHERE
+		 level=1 AND
+		 ondelect=0
+	</select>
+	
+<!-- 	根据一级目录id查询二级id名 -->
+	<select id="queryTwoLevelNameListById" parameterType="int"
+		resultType="cn.yiciyuan.pojo.Classify">
+		SELECT * FROM shop_classify WHERE
+		 class_key=#{id} AND
+		 ondelect=0
+	</select>
+
+	
+
+</mapper>

@@ -1,0 +1,15 @@
+page{
+  width: 710rpx;
+  margin: 0 20rpx;
+}
+/* .title{
+  
+} */
+.text{
+  font-size: 28rpx;
+  border-bottom: 1rpx rgb(240, 240, 240) solid;
+  border-top: 1rpx rgb(240, 240, 240) solid;
+  margin-bottom: 20rpx;
+  color: rgb(128, 128, 128);
+  padding: 20rpx;
+}

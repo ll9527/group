@@ -1,0 +1,16 @@
+<view>
+  <view class='box1' catchtap='goSetAddress'>
+    <view class='box1_text1'>添加收货地址</view>
+    <view>></view>
+  </view>
+  <view class='box2' wx:for="{{2}}">
+    <view class='box2_text'>
+      <view class='box2_text_1'>
+        <view>陈真</view>
+        <view>18218254545</view>
+      </view>
+      <view class='box2_text_2'>收货地址:广东省湛江市海田三路65号   </view>
+    </view>
+    <view class='box2_1'>></view>
+  </view>
+</view>

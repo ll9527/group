@@ -1,0 +1,12 @@
+<!-- 订单详情页 -->
+<view class='title'>买家商品标题：</view>
+<view class='text'>小清新手账本活页本笔记本子简约大学生记事本</view>
+<view class='title'>商品型号：</view>
+<view class='text'>加大码</view>
+<view class='title'>商品件数：</view>
+<view class='text'>3</view>
+<view class='title'>买家收货地址：</view>
+<view class='text'>买家收货地址买家收货地址买家收货地址买家收货地址买家收货地址</view>
+<view class='title'>买家电话：</view>
+<view class='text'>1323232213</view>
+<button type='warn' catchtap='deliverGoods'>确认发货</button>

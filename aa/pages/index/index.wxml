@@ -1,0 +1,176 @@
+<!-- 分类 -->
+<scroll-view class="categories" scroll-x="true" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+	<view class="category {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+	  热门
+	 </view>
+	<view class="category {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+	  服饰
+	 </view>
+	<view class="category {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">
+	  鞋包
+	 </view>
+	<view class="category {{currentTab==3 ? 'on' : ''}}"  data-current="3" bindtap="swichNav">
+	  电器
+	 </view>
+	<view class="category {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">
+	  零食
+	 </view>
+	<view class="category {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">
+	  百货
+	 </view>
+	<view class="category {{currentTab==6 ? 'on' : ''}}" data-current="6" bindtap="swichNav">
+	  数码
+	 </view>
+</scroll-view>
+<!-- 主体 -->
+<view class="box">
+	<swiper current="{{currentTab}}" duration="300"  
+bindchange="bindChange" style="height:{{winHeight-44+'px'}}"> 
+		<!-- 热门 --> 
+		<swiper-item >  
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- 轮播图 -->
+        <view  class="swiper">
+          <swiper indicator-dots="{{indicatorDots}}"   class="swiper" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">  
+            <block wx:for="{{imgUrls}}" wx:key="*this">  
+              <swiper-item>  
+                <navigator url="{{item.link}}">  
+                  <image src="{{item.url}}"/>
+                 </navigator>  
+               </swiper-item>  
+             </block>  
+           </swiper>  
+         </view>
+        <!-- 品牌区 -->
+        <view class="brands">
+          <view class="brand"  hover-class="navigator-hover" bindtap="toSupermarket">
+            <!-- <view>百货超市</view> -->
+            <image src="/images/superMarket.png"></image>
+           </view>
+          <view class="brand"  hover-class="navigator-hover" bindtap="toBrand">
+            <!-- <view>连锁品牌</view> -->
+            <image src="/images/brand.png"></image>
+           </view>
+         </view>
+        <!-- 置顶按钮 -->  
+        <view  class="goTop" bindtap="goTop">
+          <image src="/images/goTop.png"></image> 
+         </view> 
+        <!-- 产品列表区 -->
+        <view class="producs" wx:for="{{2}}">
+          <!-- 标题块 -->
+          <!-- <view class="produc" bindtap="goDetails"  hover-class="navigator-hover">    -->
+          <navigator url="/pages/productDetails/productDetails" class="produc" hover-class="navigator-hover">   
+            <image src="/images/15.png"></image>
+            <view class="produc_right">
+              <view class="produc_right_title">
+                <text>新款 dsdasbaaa火的新款 dsdasbaaa火的新款</text>
+               </view>
+              <view class="produc_right_bottom">
+                <view class="produc_right_bottom_l">
+                  <view class="produc_right_bottom_price">￥178 已销2486件</view>
+                  <view class="produc_right_bottom_name">依依旗舰店依依旗舰店</view>
+                  <view class="produc_right_bottom_go">进店 ></view>
+                </view>
+                <view class="produc_right_bottom_2">
+                  <image src="/images/13.png"></image>
+                  <view>￥ 118.9</view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+          <!-- </view> -->
+          <!-- 评论块 -->
+          <!-- <navigator url="/pages/test/test" class="comment" hover-class="navigator-hover">
+            <view class="comment_top">最新评论</view>
+            <view class="comment_bottom">看我家小帅哥穿的样子就知道啦，客服推荐的码数很合适，儿子穿上帅帅的店家发货看我家小帅哥穿的样子就知道啦看我家小帅哥穿的样子就知道啦看我家小帅哥穿的样子就知道啦</view>
+          </navigator> -->
+        </view>
+       </scroll-view>
+     </swiper-item>
+    <!-- 服饰 -->
+    <swiper-item>  
+      <!-- <view>服饰</view>  -->
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- 产品列表区 -->
+        <view class="producs2" wx:for="{{6}}">
+          <!-- <view class="produc" bindtap="goDetails"  hover-class="navigator-hover">       -->
+          <navigator url="/pages/productDetails/productDetails" class="produc" hover-class="navigator-hover">
+            <image src="/images/15.png"></image>
+            <view class="produc_right">
+              <view class="produc_right_title">
+                <text>新款 dsdasbaaa火的新款 dsdasbaaa火的新款</text>
+              </view>
+              <view class="produc_right_bottom">
+                <view class="produc_right_bottom_l">
+                  <view class="produc_right_bottom_price">￥178 已销2486件</view>
+                  <view class="produc_right_bottom_name">依依旗舰店依依旗舰店</view>
+                  <view class="produc_right_bottom_go">进店 ></view>
+                </view>
+                <view class="produc_right_bottom_2">
+                  <image src="/images/13.png"></image>
+                  <view>￥ 118.9</view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+          <!-- </view> -->
+        </view>
+      </scroll-view>
+     </swiper-item>
+    <!-- 鞋包 -->
+    <swiper-item>  
+      <!-- <view>鞋包</view>   -->
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- 产品列表区 -->
+        <view class="producs2" wx:for="{{6}}">
+          <!-- <view class="produc" bindtap="goDetails"  hover-class="navigator-hover">       -->
+          <navigator url="/pages/productDetails/productDetails" class="produc" hover-class="navigator-hover">
+            <image src="/images/15.png"></image>
+            <view class="produc_right">
+              <view class="produc_right_title">
+                <text>新款 dsdasbaaa火的新款 dsdasbaaa火的新款</text>
+              </view>
+              <view class="produc_right_bottom">
+                <view class="produc_right_bottom_l">
+                  <view class="produc_right_bottom_price">￥178 已销2486件</view>
+                  <view class="produc_right_bottom_name">依依旗舰店依依旗舰店</view>
+                  <view class="produc_right_bottom_go">进店 ></view>
+                </view>
+                <view class="produc_right_bottom_2">
+                  <image src="/images/13.png"></image>
+                  <view>￥ 118.9</view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+          <!-- </view> -->
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 电器   -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+      </scroll-view>  
+      <view>电器</view>  
+     </swiper-item>  
+    <!-- 零食 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+      </scroll-view>  
+      <view>零食</view>  
+     </swiper-item>  
+    <!-- 百货 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+      </scroll-view>  
+      <view>百货</view>  
+     </swiper-item>
+    <!-- 数码 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+      </scroll-view>  
+      <view>数码</view>  
+     </swiper-item>
+  </swiper>
+</view>

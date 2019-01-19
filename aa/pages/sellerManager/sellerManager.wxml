@@ -1,0 +1,25 @@
+  <view class='box3'>
+    <navigator class='box3_item' url='/pages/selleProduct/selleProduct'>
+      <view>上架中的商品</view>
+      <view>></view>
+    </navigator>
+    <view class='box3_item_border'></view>
+    <navigator class='box3_item' url='/pages/selleProduct/addSelleProduct'>
+      <view>上架商品</view>
+      <view>></view>
+    </navigator>
+    <view class='box3_item_border'></view>
+    <navigator class='box3_item' url='/pages/selleProduct/DealProduct'>
+      <view>已卖出的商品</view>
+      <view>></view>
+    </navigator>
+    <view class='box3_item_border'></view>
+    <navigator class='box3_item' url='/pages/selleProduct/DealOrder'>
+      <view>已成交的订单</view>
+      <view>></view>
+    </navigator>
+    <!-- <navigator class='box3_item'>
+      <view></view>
+      <view>></view>
+    </navigator> -->
+  </view>
