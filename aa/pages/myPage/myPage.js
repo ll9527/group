@@ -1,10 +1,17 @@
 // pages/myPage/myPage.js
+
+var app = getApp();
+
 Page({
   data:{
-    
+
   },
-  onLoad: function () {
+  /**
+   * 页面加载时触发
+   */
+  onLoad(e) {
     var that = this;
+    getApp().isLogin();
     // 获取系统信息     
     wx.getSystemInfo({
       success: function (res) {

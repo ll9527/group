@@ -24,3 +24,7 @@ page{
   text-align: center;
   margin-bottom: 50rpx;
 }
+.title{
+  /* color: rgb(128, 128, 128); */
+  font-size: 30rpx;
+}

@@ -12,6 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+      getApp().isLogin();
     console.log(e);
     sendData = {"cid": e.search};
     wx.request({

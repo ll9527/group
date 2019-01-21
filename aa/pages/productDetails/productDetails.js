@@ -13,6 +13,12 @@ Page({
     collection: false,
   },
   /**
+ * 生命周期函数--监听页面加载
+ */
+  onLoad(){
+    getApp().isLogin();
+  },
+  /**
    * 选择商品分类
    */
   radioChange:function(e){

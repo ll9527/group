@@ -21,7 +21,7 @@ Page({
   login: function (e) {
     if (e.detail.value.phone != "" && e.detail.value.password !=""){
       wx.request({
-        url: 'http://192.168.0.195:8080/user/login',
+        url: 'http://192.168.0.120:8080/user/login',
         data:{
           tel: e.detail.value.phone,
           password: e.detail.value.password
@@ -32,7 +32,7 @@ Page({
         },
         success: function(e){
           // 登录失败
-          // console.log(typeof e.data.info)
+          console.log(e.data.info)
           if(e.data.info === -1){
             wx.showToast({
               title: '手机或密码错误',
@@ -40,13 +40,18 @@ Page({
               duration: 1000,
               mask: true
             })
-          }else{
+          } else if (e.data.status === "ok" || e.data.status === "yes"){
             // 登录成功，将数据放入缓存
             // console.log(e)
             // var userData = JSON.stringify(e.data)
             wx.setStorage({
               key: 'userData',
-              data: e.data
+              data: e.data,
+              success:function(e){
+                wx.switchTab({
+                  url: '/pages/index/index',
+                })
+              }
             })
             // wx.getStorage({
             //   key: 'userData',
@@ -55,6 +60,13 @@ Page({
             //     console.log(res.data.info)
             //   }
             // })
+          }else{
+            wx.showToast({
+              title: '无法连接服务器',
+              icon: 'loading',
+              duration: 1000,
+              mask: true
+            })
           }
         }
       })
@@ -66,6 +78,14 @@ Page({
         mask: true
       })
     }
+  },
+  /**
+   * 跳转首页
+   */
+  goIndex:function(e){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

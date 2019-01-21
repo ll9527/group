@@ -9,6 +9,12 @@ Page({
     versionValue:""
   },
   /**
+ * 生命周期函数--监听页面加载
+ */
+  onLoad: function (options) {
+    getApp().isLogin();
+  },
+  /**
    * 增加产品型号
    */
   addVersion: function(e){

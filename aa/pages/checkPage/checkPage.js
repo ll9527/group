@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
+  },
+  /**
+  * 页面加载时触发
+  */
+  onLoad(e) {
+    var that = this;
+    getApp().isLogin();
   },
   /**
    * 跳转支付页面

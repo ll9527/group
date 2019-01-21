@@ -8,6 +8,12 @@ Page({
     region: ['广东省', '湛江市', '赤坎区']
   },
   /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    getApp().isLogin();
+  },
+  /**
    * 取消返回
    */
   cancel:function(e){

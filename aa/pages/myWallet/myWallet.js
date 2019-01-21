@@ -8,6 +8,12 @@ Page({
 
   },
   /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(e){
+    getApp().isLogin();
+  },
+  /**
    * 提现功能
    */
   toCash: function(e){
