@@ -127,7 +127,7 @@
       <view>></view>
     </navigator>
     <view class='box3_item_border'></view>
-    <navigator class='box3_item'>
+    <navigator class='box3_item' url='/pages/admin/admin'>
       <view>管理员后台</view>
       <view>></view>
     </navigator>

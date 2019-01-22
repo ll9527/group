@@ -78,7 +78,7 @@ bindchange="bindChange" style="height:{{winHeight-88-50}}px">
           <view class='body_item' wx:for="{{5}}">
             <!-- 头部 -->
             <view class='body_item_head'>
-              <image src='/images/15.png'></image>
+              <!-- <image src='/images/15.png'></image> -->
               <!-- <view class='body_item_title'> -->
               <navigator class='body_item_title' url='/pages/storeDetails/storeDetails'>
                 <view class='body_item_title_1'>没舌头冰淇淋</view>

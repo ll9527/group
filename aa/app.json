@@ -1,7 +1,13 @@
 {
   "pages":[
 
+    "pages/sellerManager/register",
     "pages/index/index",
+    "pages/admin/admin",
+
+    
+
+    
 
     "pages/login/login",
 
@@ -9,11 +15,7 @@
     "pages/sellerManager/sellerManager",
 
     "pages/search/search",
-    "pages/userData/userData",
-
-    
-    
-    
+    "pages/userData/userData",  
 
     "pages/selleProduct/selleProduct",
     "pages/selleProduct/DealOrder",

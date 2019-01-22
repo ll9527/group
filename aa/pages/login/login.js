@@ -21,7 +21,7 @@ Page({
   login: function (e) {
     if (e.detail.value.phone != "" && e.detail.value.password !=""){
       wx.request({
-        url: 'http://192.168.0.120:8080/user/login',
+        url: getApp().url+'/user/login',
         data:{
           tel: e.detail.value.phone,
           password: e.detail.value.password

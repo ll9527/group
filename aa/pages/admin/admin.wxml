@@ -1,0 +1,6 @@
+
+<navigator class='items' wx:for="{{4}}" wx:key="{{index}}">
+  <view class='items_title'>店铺名：哈哈哈啊哈哈哈</view>
+</navigator>
+
+

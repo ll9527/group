@@ -7,9 +7,9 @@
     <!-- <view class='tab_text'>新品</view> -->
   </view>
   <view class='image'>
-    <image class='image' src='/images/bjt.png'></image>
+    <!-- <image class='image' src='/images/bjt.png'></image> -->
   </view>
-  <image class='shopHead' src='/images/dptx.png'></image>
+  <!-- <image class='shopHead' src='/images/dptx.png'></image> -->
   <view class='box1'>
     <view>收藏</view>
   </view>
