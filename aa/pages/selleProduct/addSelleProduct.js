@@ -79,6 +79,7 @@ Page({
    * form提交
    */
   formSubmit: function(e){
+    var that = this
     console.log(e.detail.value)
     // 如果input框里面的值不为空
     if (e.detail.value.title != "" && e.detail.value.num != "" && e.detail.value.price != "" && e.detail.value.groupPrice != ""){
@@ -95,7 +96,8 @@ Page({
           title: e.detail.value.title,
           num: e.detail.value.num,
           price: e.detail.value.price,
-          groupPrice: e.detail.value.groupPrice
+          groupPrice: e.detail.value.groupPrice,
+          version: that.data.version
         }
       })
     }else{

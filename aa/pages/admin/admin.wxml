@@ -1,6 +1,6 @@
 
-<navigator class='items' wx:for="{{4}}" wx:key="{{index}}">
-  <view class='items_title'>店铺名：哈哈哈啊哈哈哈</view>
+<navigator open-type='redirect' url='/pages/admin/waitConfirm?sellerid={{item.seller.id}}&userid={{item.id}}' class='items' wx:for="{{selleList}}" wx:key="{{index}}">
+  <view class='items_title'>店铺名：{{item.seller.titleName}}</view>
 </navigator>
 
 

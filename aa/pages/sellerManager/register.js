@@ -22,6 +22,26 @@ Page({
         userId = res.data.userId
       },
     })
+    wx.request({
+      url: getApp().url + '/user/checkIsApply',
+      data: {
+        userid: getApp().userData.userId
+      },
+      success: function (res) {
+        if (res.data == 1) {
+          // console.log(getApp().userData.userId)
+          wx.navigateBack({
+            delta: 1
+          })
+          wx.showToast({
+            title: '等待批准',
+            icon: 'loading',
+            duration: 1000,
+            mask: true
+          })
+        }
+      }
+    })
   },
   /**
    * 增加产品型号
@@ -88,7 +108,7 @@ Page({
       wx.uploadFile({
         url: getApp().url+'/seller/upload',
         filePath: tempFilePaths[i],
-        name: 'sellerBcima',
+        name: 'image',
         header: {
           "content-type": "multipart/form-data"
         },
@@ -106,7 +126,7 @@ Page({
     // console.log(e.detail.value)
     // 如果input框里面的值不为空
     var that = this
-    if (e.detail.value.title != "" && e.detail.value.tel != "") {
+    if (e.detail.value.title != "" && e.detail.value.tel != "" && e.detail.value.address != "") {
       if (that.data.detailsPhoto.length === 0) {
         wx.showToast({
           title: '请上传图片',
@@ -123,6 +143,7 @@ Page({
             // applyMoney: applyMoney
             titleName: e.detail.value.title,
             tel: e.detail.value.tel,
+            address: e.detail.value.address
           },
           success: function (e) {
             // -1注册失败  1 成功  -9 已经是商户
@@ -132,7 +153,7 @@ Page({
               //   this.uploadimg(this.data.headPhoto)
               // }
               that.uploadimg(that.data.detailsPhoto, userId)
-              wx.navigateTo({
+              wx.switchTab({
                 url: '/pages/myPage/myPage',
               })
             } else {

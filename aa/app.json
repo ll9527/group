@@ -1,11 +1,13 @@
 {
   "pages":[
-
-    "pages/sellerManager/register",
     "pages/index/index",
-    "pages/admin/admin",
-
     
+    "pages/admin/waitConfirm",
+    
+    
+    "pages/admin/admin",
+    
+    "pages/sellerManager/register",
 
     
 

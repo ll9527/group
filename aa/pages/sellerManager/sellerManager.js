@@ -13,6 +13,25 @@ Page({
  */
   onLoad: function (options) {
     getApp().isLogin();
+    wx.request({
+      url: getApp().url + '/seller/isSeller',
+      data: {
+        userid: getApp().userData.userId
+      },
+      success: function (res) {
+        if (res.data != 1) {
+          wx.navigateBack({
+            delta: 1
+          })
+          wx.showToast({
+            title: '没有权限',
+            icon: 'loading',
+            duration: 1000,
+            mask: true
+          })
+        }
+      }
+    })
   },
   /**
    * 增加产品型号

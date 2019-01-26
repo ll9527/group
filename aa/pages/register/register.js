@@ -28,7 +28,7 @@ Page({
             password: e.detail.value.password
           },
           success: function (e) {
-            // info 1 成功  -1 注册失败  -2 手机已存在
+            // info 1 成功  -1 注册失败  -9 手机已存在
             if (e.data.info === 1) {
               wx.showToast({
                 title: '注册成功',
@@ -36,13 +36,15 @@ Page({
                 duration: 1000,
                 mask: true,
                 success: function(e){
-                  wx.navigateBack({
-                    delta: 1
-                  })
+                  setTimeout(function () {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }, 1000) //延迟时间 这里是1秒
                 }
               })
             }
-            else if (e.data.info === -2){
+            else if (e.data.info === -9){
               wx.showToast({
                 title: '手机已存在',
                 icon: 'loading',

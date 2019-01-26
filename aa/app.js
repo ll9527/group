@@ -1,10 +1,11 @@
 //app.js
 App({
-  url: "http://132.232.159.2:8080",
+  // url: "http://132.232.159.2:8080",
+  url: "http://192.168.0.105:8080",
   /**
   * 登录验证
   */
-  userData:"",
+  userData:"1231",
   isLogin: function () {
     wx.getStorage({
       key: 'userData',

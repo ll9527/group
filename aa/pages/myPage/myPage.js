@@ -9,7 +9,7 @@ Page({
   /**
    * 页面加载时触发
    */
-  onLoad(e) {
+  onLoad: function(e) {
     var that = this;
     getApp().isLogin();
     // 获取系统信息     
@@ -21,6 +21,28 @@ Page({
         });
       }
     });
+    wx.getStorage({
+      key: 'userData',
+      success: function (e) {
+        wx.request({
+          url: getApp().url + '/user/selectMark',
+          data: {
+            userid: e.data.userId
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.mark) { 
+              that.setData({
+                mark: res.data
+              })
+            }
+            that.setData({
+              username: res.data.username
+            })
+          }
+        })
+      } 
+    })   
   },
   // 升级店长
   toDianZhang: function(){
@@ -28,10 +50,10 @@ Page({
       url: '/pages/upgradeStoreManager/msg',
     })
   },
-  // 我要开店
+  // 线下开店
   toKaiDian : function(){
     wx.navigateTo({
-      url: '',
+      url: '/pages/sellerManager/register',
     })
   },
   // 我的团购页面

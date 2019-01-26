@@ -3,7 +3,7 @@
     <view class='box1_top'>
       <image class='box1_top_image' src='/images/tx@2x.png'></image>
       <view class='box1_top_mid'>
-        <view class='box1_top_mid_title'>阿里咕噜</view>
+        <view class='box1_top_mid_title'>{{username}}</view>
         <view class='box1_top_mid_title2'>
           <view style='margin-right:20rpx' bindtap='toDianZhang'>升级店长</view>
           <view bindtap='toKaiDian'>线下开店</view>
@@ -87,6 +87,14 @@
     </view>
   </view>
   <view class='box3'>
+    <view class='cause' wx:if="{{mark}}">
+      <view>
+        开店不成功,原因:
+          <view>
+            {{mark}}，请再次申请</view>
+          </view>
+    </view>
+    <view class='box3_item_border'></view>
     <navigator class='box3_item' url='/pages/myWallet/myWallet'>
       <view>我的钱包</view>
       <view>></view>

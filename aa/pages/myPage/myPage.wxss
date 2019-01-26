@@ -178,6 +178,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+}
+.cause{
+  width: 678rpx;
+  padding-left: 26rpx; 
+  display: flex;
+  overflow: hidden;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  color: rgb(255, 90, 90)
 }
 .box3_item > view{
   height: 32rpx;
