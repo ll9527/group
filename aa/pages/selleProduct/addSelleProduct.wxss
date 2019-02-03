@@ -24,3 +24,6 @@ page{
   text-align: center;
   margin-bottom: 50rpx;
 }
+.picker{
+  line-height: 60rpx;
+}

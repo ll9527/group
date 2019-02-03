@@ -15,6 +15,14 @@
 <input class='inputBox' name="groupPrice" maxlength="10" type="digit" placeholder="商品团购价"></input>
     <view class='text'>注：如不参加团购，不输入即可</view>
 
+<view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{twoLevelName}}" >
+    <view class="inputBox picker">
+      类型：{{index? twoLevelName[index]:"请点选择类型"}}
+    </view>
+  </picker>
+</view>
+
 <image src='{{item}}' mode="widthFix" style='width:670rpx;' wx:for="{{headPhoto}}" wx:key="{{index}}"></image>
 <view class='text'>点击按钮上传产品头像,建议750px*750px</view>
 <view class='button' catchtap='seeHeadPhoto'>上传产品头像图片</view>

@@ -5,16 +5,17 @@ Page({
    */
   data: {
     //轮播图
+    url: getApp().url,
     imgUrls: [
       {
         link: '/pages/test/test',
-        url: '/images/14.png'
+        url: '/image/14.png'
       }, {
         link: '/pages/test/test',
-        url: '/images/14.png'
+        url: '/image/14.png'
       }, {
         link: '/pages/test/test',
-        url: '/images/14.png'
+        url: '/image/14.png'
       }
     ],
     indicatorDots: true,  //小点

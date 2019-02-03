@@ -35,7 +35,7 @@ bindchange="bindChange" style="height:{{winHeight-44+'px'}}">
             <block wx:for="{{imgUrls}}" wx:key="*this">  
               <swiper-item>  
                 <navigator url="{{item.link}}">  
-                  <image src="{{item.url}}"/>
+                  <image src="{{url+item.url}}"/>
                  </navigator>  
                </swiper-item>  
              </block>  
@@ -61,7 +61,7 @@ bindchange="bindChange" style="height:{{winHeight-44+'px'}}">
           <!-- 标题块 -->
           <!-- <view class="produc" bindtap="goDetails"  hover-class="navigator-hover">    -->
           <navigator url="/pages/productDetails/productDetails" class="produc" hover-class="navigator-hover">   
-            <image src="/images/15.png"></image>
+            <image src="{{url}}/image/15.png"></image>
             <view class="produc_right">
               <view class="produc_right_title">
                 <text>新款 dsdasbaaa火的新款 dsdasbaaa火的新款</text>
@@ -73,7 +73,7 @@ bindchange="bindChange" style="height:{{winHeight-44+'px'}}">
                   <view class="produc_right_bottom_go">进店 ></view>
                 </view>
                 <view class="produc_right_bottom_2">
-                  <image src="/images/13.png"></image>
+                  <image src="{{url}}/image/13.png"></image>
                   <view>￥ 118.9</view>
                 </view>
               </view>

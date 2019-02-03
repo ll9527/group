@@ -86,7 +86,7 @@
       <!-- 分类 -->
       <scroll-view style="height:{{winHeight-55+'px'}}" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation="{{true}}">
         <view class="category {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav" wx:for="{{categoryList}}" wx:key="{{index}}">
-          {{item.name}}
+          {{item.className}}
         </view>
       </scroll-view>
     </view>
@@ -96,15 +96,15 @@
         <!-- 标题list -->
         <view class="body1_right_box"  wx:for="{{categoryList}}" id="{{'list'+index}}" data-listId="list{{index}}" wx:key="{{index}}">
           <view class="body1_right_box_top">
-            <text > {{item.name}} </text>
+            <text > {{item.className}} </text>
             <!-- <navigator hover-class="hoverClass" url='/pages/searchItems/searchItems'>查看全部></navigator> -->
           </view>
           <!-- 商品 -->
           <view class="body1_right_box_bottom">
             <!-- 商品list -->
-            <navigator class="body1_right_box_bottom_list" url="/pages/searchItems/searchItems?search={{item.class_id}}" wx:for="{{item.twoLevelName}}" wx:key="{{index}}">
-              <image src="http://localhost:8080/images/{{item.images}}"></image>
-              <view>{{item.class_name}}</view>
+            <navigator class="body1_right_box_bottom_list" url="/pages/searchItems/searchItems?search={{item.classId}}" wx:for="{{item.towLevelName}}" wx:key="{{index}}">
+              <image src="{{url+'/image/'+item.images}}"></image>
+              <view>{{item.className}}</view>
             </navigator>           
           </view>
         </view>

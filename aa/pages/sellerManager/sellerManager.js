@@ -19,7 +19,8 @@ Page({
         userid: getApp().userData.userId
       },
       success: function (res) {
-        if (res.data != 1) {
+        console.log(res.data)
+        if (res.data.isSeller != 1) {
           wx.navigateBack({
             delta: 1
           })

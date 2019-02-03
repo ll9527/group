@@ -60,7 +60,7 @@ Page({
   // 右方的菜单实现互动。用bindscroll绑定实现
   rigConScr: function (e) {
     var that = this;
-    console.log(e);
+    // console.log(e);
     var query = wx.createSelectorQuery();
     query.selectAll('.body1_right_box').boundingClientRect(function (res) {
       res.forEach(function (item) {
@@ -99,15 +99,18 @@ Page({
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
-          winHeight: (res.windowHeight-44)
+          winHeight: (res.windowHeight-44),
+          url: getApp().url
         });
       }
     });
     wx.request({
-      url: 'http://localhost:8080/classify', 
+      url: getApp().url+'/classfiy/selectLevel', 
       success(res) {
+        // console.log(res)
         that.setData({
-          categoryList: res.data
+          categoryList: res.data,
+          url: getApp().url
         })
         // console.log(res.data)
       }
