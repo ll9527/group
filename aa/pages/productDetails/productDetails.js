@@ -15,8 +15,22 @@ Page({
   /**
  * 生命周期函数--监听页面加载
  */
-  onLoad(){
+  onLoad(res){
+    var that = this;
     getApp().isLogin();
+    console.log(res)
+    wx.request({
+      url: getApp().url +'/product/selectDetail',
+      data: {
+        productid:res.productid
+      },
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          productDetail: res.data
+        })       
+      }
+    })
   },
   /**
    * 选择商品分类

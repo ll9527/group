@@ -20,6 +20,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
+        // 如果不是商户
         if (res.data.isSeller != 1) {
           wx.navigateBack({
             delta: 1
@@ -29,6 +30,12 @@ Page({
             icon: 'loading',
             duration: 1000,
             mask: true
+          })
+        }else{
+          // 如果是商户
+          wx.setStorage({
+            key: 'sellerId',
+            data: res.data.sellerId,
           })
         }
       }

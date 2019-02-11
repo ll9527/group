@@ -1,17 +1,17 @@
 <view>
-  <view>
+  <!-- <view>
     <image src='/images/xq.png' mode="widthFix" class='image'></image>
-  </view>
+  </view> -->
   <view class='box1'>
     <view class='box1_1'>
       <view class='box1_1_left'>
-        <view class='box1_1_left_1'>团</view>
-        <view class='box1_1_left_2'>￥12</view>
-        <view class='box1_1_left_3'>秒杀价：￥16.5</view>
+        <view class='box1_1_left_1' wx:if="{{productDetail.groupPrice}}">团</view>
+        <view class='box1_1_left_2'>￥{{productDetail.groupPrice}}</view>
+        <view class='box1_1_left_3'>秒杀价：￥{{productDetail.price}}</view>
       </view>
       <view class='box1_1_right'>已销3000件</view>
     </view>
-    <view class='box1_2'>三年二班Q小清新小确幸裸装本Z横线精装本子学生用笔记本记事本</view>
+    <view class='box1_2'>{{productDetail.title}}</view>
     <view class='box1_3'>
       <image src='/images/seat.png'></image>
       <view>广东省湛江市海田三路65号</view>

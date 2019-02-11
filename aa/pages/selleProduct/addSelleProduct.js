@@ -41,12 +41,13 @@ Page({
    */
   bindPickerChange(e) {
     var that = this
-    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
     })
+    // 获取二级目录的id
     that.data.cid = that.data.twoLevelList[e.detail.value].classId
-    // console.log(that.data.cid)
+    console.log(that.data.cid)
   },
   /**
    * 增加产品型号
@@ -121,7 +122,7 @@ Page({
     var that = this
     // console.log(e.detail.value)
     // 如果input框里面的值不为空
-    if (that.data.cid != "" && e.detail.value.title != "" && e.detail.value.num != "" && e.detail.value.price != "" && e.detail.value.groupPrice != ""){
+    if (e.detail.value.title != "" && e.detail.value.num != "" && e.detail.value.price != "" && e.detail.value.groupPrice != ""){
       // 如果商品类型为空，则弹框
       if (this.data.version.length == 0){
         wx.showToast({
@@ -133,44 +134,55 @@ Page({
       }else{
         if (this.data.headPhoto) {
           if (this.data.detailsPhoto) {
-            // 传数据给后台
-            wx.request({
-              url: getApp().url + '/product/insertP',
-              data: {
-                cid: that.data.cid,
-                title: e.detail.value.title,
-                num: e.detail.value.num,
-                price: e.detail.value.price,
-                groupPrice: e.detail.value.groupPrice,
-                versionList: JSON.stringify(that.data.version)
-              },
-              success: function(res){
-                // console.log(res)
-                if (res.data.info != 1){
-                  // console.log("res.data.info:" + res.data.info)
-                  wx.showToast({
-                    title: '注册失败',
-                    icon: 'loading',
-                    duration: 1000,
-                    mask: true,
-                    success:function(res){
-                      setTimeout(function () {
-                        wx.navigateBack({
-                          delta: 1
-                        })
-                      }, 2000)    
-                    }
-                  })                 
-                }else{
-                  // console.log("文件上传")
-                  that.uploadimg(that.data.headPhoto, res.data.productid, 1)
-                  that.uploadimg(that.data.detailsPhoto, res.data.productid, 0)
-                  wx.navigateBack({
-                    delta: 1
-                  }) 
-                }                          
-              }
-            })
+            // 如果类型没选择则弹框提示
+            if(that.data.cid!=""){
+              // 传数据给后台
+              wx.request({
+                url: getApp().url + '/product/insertP',
+                data: {
+                  cid: that.data.cid,
+                  title: e.detail.value.title,
+                  num: e.detail.value.num,
+                  price: e.detail.value.price,
+                  groupPrice: e.detail.value.groupPrice,
+                  versionList: JSON.stringify(that.data.version),
+                  sellerid: wx.getStorageSync("sellerId")
+                },
+                success: function (res) {
+                  // console.log(res)
+                  if (res.data.info != 1) {
+                    // console.log("res.data.info:" + res.data.info)
+                    wx.showToast({
+                      title: '注册失败',
+                      icon: 'loading',
+                      duration: 1000,
+                      mask: true,
+                      success: function (res) {
+                        setTimeout(function () {
+                          wx.navigateBack({
+                            delta: 1
+                          })
+                        }, 2000)
+                      }
+                    })
+                  } else {
+                    // console.log("文件上传")
+                    that.uploadimg(that.data.headPhoto, res.data.productid, 1)
+                    that.uploadimg(that.data.detailsPhoto, res.data.productid, 0)
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }
+                }
+              })
+            }else{
+              wx.showToast({
+                title: '请选择类型',
+                icon: 'loading',
+                duration: 1000,
+                mask: true
+              })
+            } 
           }else{
             wx.showToast({
               title: '请上传详情图',
