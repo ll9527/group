@@ -21,6 +21,10 @@ Page({
         });
       }
     });
+    
+  },
+  onShow: function(e){
+    var that = this;
     wx.getStorage({
       key: 'userData',
       success: function (e) {
@@ -31,17 +35,18 @@ Page({
           },
           success: function (res) {
             console.log(res.data)
-            if (res.data.mark) { 
-              that.setData({
-                mark: res.data
-              })
-            }
+            // if (res.data.mark) {
+            //   that.setData({
+            //     mark: res.data
+            //   })
+            // }
             that.setData({
-              username: res.data.username
+              username: res.data.username,
+              mark: res.data.mark
             })
           }
         })
-      } 
+      }
     })   
   },
   // 升级店长

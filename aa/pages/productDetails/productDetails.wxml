@@ -45,7 +45,7 @@
     <view class='box3_1'>数量</view>
     <view class='box3_2'>
       <text decode='{{true}}' catchtap='reduce' class='box3_2_text'>&lt;</text>
-      <view class='box3_2_num'>3</view>
+      <view class='box3_2_num'>{{count}}</view>
       <text decode='{{true}}' catchtap='add' class='box3_2_text'>></text>
     </view>
   </view>

@@ -65,7 +65,7 @@ Page({
           id: that.data.userid,
           sellerid: that.data.sellerid,
           operation: 0,
-          mark: e.detail.value.mark
+          appliedMark: e.detail.value.mark
         },
         success: function (e) {
           wx.redirectTo({

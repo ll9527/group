@@ -8,7 +8,17 @@ Page({
     version: [],
     // 清空类型input框
     versionValue: "",
-    detailsPhoto:[]
+    detailsPhoto:[],
+    // 商铺类型列表
+    twoLevelName: [
+      "连锁超市",
+      "便利店",
+      "副食店",
+      "食店",
+      "水果店",
+      "服饰其他"
+    ],
+    sellerClass:""
   },
   /**
  * 生命周期函数--监听页面加载
@@ -119,6 +129,19 @@ Page({
     }
   },
   /**
+   * picker  value 改变时触发 change 事件
+   */
+  bindPickerChange(e) {
+    var that = this
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value,
+    })
+    // 获取店铺类型
+    that.data.sellerClass = that.data.twoLevelName[e.detail.value]
+    console.log(that.data.sellerClass)
+  },
+  /**
    * form提交
    */
   formSubmit: function (e) {
@@ -127,6 +150,15 @@ Page({
     // 如果input框里面的值不为空
     var that = this
     if (e.detail.value.title != "" && e.detail.value.tel != "" && e.detail.value.address != "") {
+      if (that.data.sellerClass == "") {
+        wx.showToast({
+          title: '请选择类型',
+          icon: 'loading',
+          duration: 1000,
+          mask: true
+        })
+        return;
+      }
       if (that.data.detailsPhoto.length === 0) {
         wx.showToast({
           title: '请上传图片',
@@ -143,7 +175,8 @@ Page({
             // applyMoney: applyMoney
             titleName: e.detail.value.title,
             tel: e.detail.value.tel,
-            address: e.detail.value.address
+            address: e.detail.value.address,
+            sellerClass: that.data.sellerClass
           },
           success: function (e) {
             // -1注册失败  1 成功  -9 已经是商户

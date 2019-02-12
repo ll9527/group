@@ -13,7 +13,8 @@ Page({
   onDelete: function(e){
     console.log(e)
     // 获得商品id
-    e.target.dataset.productId
+    console.log(e.target.dataset.productid)
+    
   },
   /**
    * 生命周期函数--监听页面加载

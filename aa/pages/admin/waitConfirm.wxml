@@ -3,6 +3,8 @@
 <view class='text'>{{sellsMessage.titleName}}</view>
 <view class='title'>店铺电话：</view>
 <view class='text'>{{sellsMessage.tel}}</view>
+<view class='title'>店铺类型：</view>
+<view class='text'>{{sellsMessage.sellerClass}}</view>
 <view class='title'>店铺地址：</view>
 <view class='text' wx:for="{{sellsMessage.sellerAddressList}}" wx:key="{{index}}">{{item.address}}</view>
 <image class='image' mode='widthFix' wx:for="{{sellsMessage.sellerBcImgList}}" src="{{url+'/image/'+item.img}}" wx:key="{{index}}"></image>

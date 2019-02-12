@@ -11,10 +11,48 @@ Page({
     ],
     // 点击收藏
     collection: false,
+    count: 0,
+    num: 20
   },
   /**
- * 生命周期函数--监听页面加载
- */
+   * 点击右符号 增 数量
+   */
+  add: function (e) {
+    if (this.data.count < this.data.num) {
+      this.data.count += 1;
+      this.setData({
+        count: this.data.count
+      })
+    } else {
+      // 如果件数大于库存数，则件数等于库存数
+      this.data.count = this.data.num;
+      this.setData({
+        count: this.data.count
+      })
+    }
+    
+  },
+  /**
+   * 点击右符号 减 数量
+   */
+  reduce: function (e) {
+    // 如果件数大于0，可以减件数
+    if (this.data.count > 0) {
+      this.data.count -= 1;
+      this.setData({
+        count: this.data.count
+      })
+    } else {
+      // 件数小于0，件数等于0
+      this.data.count = 0;
+      this.setData({
+        count: this.data.count
+      })
+    }
+  }, 
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad(res){
     var that = this;
     getApp().isLogin();
@@ -25,10 +63,11 @@ Page({
         productid:res.productid
       },
       success: function(res) {
-        console.log(res)
-        that.setData({
-          productDetail: res.data
-        })       
+        // console.log(res)
+        // that.setData({
+        //   productDetail: res.data,
+        //   num: res.data.num
+        // })       
       }
     })
   },
