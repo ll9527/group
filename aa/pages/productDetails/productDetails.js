@@ -6,13 +6,13 @@ Page({
    */
   data: {
     classify:[
-      '绿野仙踪30p', '绿野仙踪 60p', '绿野仙踪90p', '午后光线 30p',
-      '午后光线 60p', '午后光线 90p', '午后光线绿野仙踪 30p'
+      // '绿野仙踪30p', '绿野仙踪 60p', '绿野仙踪90p', '午后光线 30p',
+      // '午后光线 60p', '午后光线 90p', '午后光线绿野仙踪 30p'
     ],
     // 点击收藏
     collection: false,
     count: 0,
-    num: 20
+    num: 0
   },
   /**
    * 点击右符号 增 数量
@@ -63,11 +63,14 @@ Page({
         productid:res.productid
       },
       success: function(res) {
-        // console.log(res)
-        // that.setData({
-        //   productDetail: res.data,
-        //   num: res.data.num
-        // })       
+        console.log(res)
+        that.setData({
+          productDetail: res.data,
+          num: res.data.productList[0].num,
+          classify: res.data.productVersion,
+          url: getApp().url+"/image/"
+        }) 
+        console.log(that.data.classify)      
       }
     })
   },
@@ -75,6 +78,7 @@ Page({
    * 选择商品分类
    */
   radioChange:function(e){
+    console.log(e.detail.value)
     this.setData({
       radioId: e.detail.value
     });
@@ -107,8 +111,8 @@ Page({
    * 跳转店铺首页
    */
   goStore: function(e){
-    wx.navigateTo({
-      url: '/pages/storeDetails/storeDetails'
-    })
+    // wx.navigateTo({
+    //   url: '/pages/storeDetails/storeDetails'
+    // })
   }
 })

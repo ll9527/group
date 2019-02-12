@@ -122,7 +122,7 @@ Page({
     var that = this
     // console.log(e.detail.value)
     // 如果input框里面的值不为空
-    if (e.detail.value.title != "" && e.detail.value.num != "" && e.detail.value.price != "" && e.detail.value.groupPrice != ""){
+    if (e.detail.value.title != "" && e.detail.value.num != "" && e.detail.value.price != ""){
       // 如果商品类型为空，则弹框
       if (this.data.version.length == 0){
         wx.showToast({

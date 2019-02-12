@@ -34,20 +34,22 @@ bindchange="bindChange" style="height:{{winHeight-44+'px'}}">
           <swiper indicator-dots="{{indicatorDots}}"   class="swiper" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">  
             <block wx:for="{{imgUrls}}" wx:key="*this">  
               <swiper-item>  
-                <navigator url="{{item.link}}">  
+                <!-- <navigator url="{{item.link}}">   -->
                   <image src="{{url+item.url}}"/>
-                 </navigator>  
+                 <!-- </navigator>   -->
                </swiper-item>  
              </block>  
            </swiper>  
          </view>
         <!-- 品牌区 -->
         <view class="brands">
-          <view class="brand"  hover-class="navigator-hover" bindtap="toSupermarket">
+          <!-- <view class="brand"  hover-class="navigator-hover" bindtap="toSupermarket"> -->
+          <view class="brand"  hover-class="navigator-hover">
             <!-- <view>百货超市</view> -->
             <image src="/images/superMarket.png"></image>
            </view>
-          <view class="brand"  hover-class="navigator-hover" bindtap="toBrand">
+          <!-- <view class="brand"  hover-class="navigator-hover" bindtap="toBrand"> -->
+          <view class="brand"  hover-class="navigator-hover">
             <!-- <view>连锁品牌</view> -->
             <image src="/images/brand.png"></image>
            </view>
@@ -70,7 +72,7 @@ bindchange="bindChange" style="height:{{winHeight-44+'px'}}">
                 <view class="produc_right_bottom_l">
                   <view class="produc_right_bottom_price">￥178 已销2486件</view>
                   <view class="produc_right_bottom_name">依依旗舰店依依旗舰店</view>
-                  <view class="produc_right_bottom_go">进店 ></view>
+                  <!-- <view class="produc_right_bottom_go">进店 ></view> -->
                 </view>
                 <view class="produc_right_bottom_2">
                   <image src="{{url}}/image/13.png"></image>
@@ -105,7 +107,7 @@ bindchange="bindChange" style="height:{{winHeight-44+'px'}}">
                 <view class="produc_right_bottom_l">
                   <view class="produc_right_bottom_price">￥178 已销2486件</view>
                   <view class="produc_right_bottom_name">依依旗舰店依依旗舰店</view>
-                  <view class="produc_right_bottom_go">进店 ></view>
+                  <!-- <view class="produc_right_bottom_go">进店 ></view> -->
                 </view>
                 <view class="produc_right_bottom_2">
                   <image src="/images/13.png"></image>

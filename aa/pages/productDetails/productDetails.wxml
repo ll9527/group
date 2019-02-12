@@ -5,16 +5,16 @@
   <view class='box1'>
     <view class='box1_1'>
       <view class='box1_1_left'>
-        <view class='box1_1_left_1' wx:if="{{productDetail.groupPrice}}">团</view>
-        <view class='box1_1_left_2'>￥{{productDetail.groupPrice}}</view>
-        <view class='box1_1_left_3'>秒杀价：￥{{productDetail.price}}</view>
+        <view class='box1_1_left_1' wx:if="{{productDetail.productList[0].isGroup == 1}}">团</view>
+        <view class='box1_1_left_2' wx:if="{{productDetail.productList[0].isGroup == 1}}">￥{{productDetail.productList[0].groupPrice}}</view>
+        <view class='box1_1_left_3'>秒杀价：￥{{productDetail.productList[0].price}}</view>
       </view>
-      <view class='box1_1_right'>已销3000件</view>
+      <view class='box1_1_right'>已销{{productDetail.productList[0].salesVolume}}件</view>
     </view>
-    <view class='box1_2'>{{productDetail.title}}</view>
+    <view class='box1_2'>{{productDetail.productList[0].title}}</view>
     <view class='box1_3'>
       <image src='/images/seat.png'></image>
-      <view>广东省湛江市海田三路65号</view>
+      <view>{{productDetail.addressList[0].address}}</view>
     </view>
   </view>
   <view class='box2'>
@@ -38,7 +38,7 @@
   <radio-group class='classify' bindchange="radioChange">
     <label wx:for='{{classify}}' wx:key='{{index}}'>
       <radio value='{{index}}'></radio>
-      <view class="{{index==radioId?'on':''}}">{{item}}</view>
+      <view class="{{index==radioId?'on':''}}">{{item.versionName}}</view>
     </label>
   </radio-group>
   <view class='box3'>
@@ -50,16 +50,16 @@
     </view>
   </view>
   <view>
-    <navigator class='box4' url='/pages/storeDetails/storeDetails'>
+    <navigator class='box4' url='/pages/storeDetails/storeDetails?sellerid={{productDetail.sellerid}}'>
       <view class='box4_1'>
         <image class='box4_1_image' src='/images/dptx.png'></image>
-        <view class='box4_1_text'>纸物文具店</view>
+        <view class='box4_1_text'>{{productDetail.sellerTitleName}}</view>
       </view>
       <view class='box4_text'>进店选购</view>
     </navigator>
   </view>
   <view class='box5'>
-    <image class='box5_image' src='/images/spxq.png' mode='widthFix'></image>
+    <image wx:for="{{productDetail.productList[0].productImgList}}" wx:key="{{index}}" src="{{url+item.image}}" class='box5_image' mode='widthFix'></image>
   </view>
   <view class='box6'>
     <view class='box6_1'>

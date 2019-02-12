@@ -46,7 +46,9 @@ Page({
         console.log(res.windowHeight);
       }
     });
-    
+    wx.request({
+      url: getApp().url+'',
+    })
   },
   /** 
   * 滑动切换tab 
