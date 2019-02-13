@@ -46,6 +46,7 @@ Page({
         console.log(res.windowHeight);
       }
     });
+    // 获得热门商品
     wx.request({
       url: getApp().url+'',
     })

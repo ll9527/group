@@ -1,6 +1,7 @@
 // pages/search/search.js
 Page({
   data: {
+    url: getApp().url,
     inputShowed: false,
     inputVal: "",
     //历史记录的开关
@@ -85,6 +86,84 @@ Page({
         console.log(res.windowHeight);
       }
     });
+    wx.request({
+      url: getApp().url +'/seller/selectSellerClass',
+      data: {
+        sellerClass: "热门"
+      },
+      success: function(res){
+        console.log(res)
+        that.setData({
+          hotList: res.data
+        })
+        console.log(that.data.hotList)
+      }
+    })
+    wx.request({
+      url: getApp().url + '/seller/selectSellerClass',
+      data: {
+        sellerClass: "连锁超市"
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          lianSuoList: res.data
+        })
+        console.log(that.data.lianSuoList)
+      }
+    })
+    wx.request({
+      url: getApp().url + '/seller/selectSellerClass',
+      data: {
+        sellerClass: "便利店"
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          bianLiList: res.data
+        })
+        console.log(that.data.bianLiList)
+      }
+    })
+    wx.request({
+      url: getApp().url + '/seller/selectSellerClass',
+      data: {
+        sellerClass: "副食店"
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          fuShiList: res.data
+        })
+        console.log(that.data.fuShiList)
+      }
+    })
+    wx.request({
+      url: getApp().url + '/seller/selectSellerClass',
+      data: {
+        sellerClass: "食店"
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          shiList: res.data
+        })
+        console.log(that.data.shiList)
+      }
+    })
+    wx.request({
+      url: getApp().url + '/seller/selectSellerClass',
+      data: {
+        sellerClass: "水果店"
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          shuiGuoList: res.data
+        })
+        console.log(that.data.shuiGuoList)
+      }
+    })
 
   },
   // 点击收藏

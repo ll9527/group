@@ -52,7 +52,7 @@
   <view>
     <navigator class='box4' url='/pages/storeDetails/storeDetails?sellerid={{productDetail.sellerid}}'>
       <view class='box4_1'>
-        <image class='box4_1_image' src='/images/dptx.png'></image>
+        <!-- <image class='box4_1_image' src='/images/dptx.png'></image> -->
         <view class='box4_1_text'>{{productDetail.sellerTitleName}}</view>
       </view>
       <view class='box4_text'>进店选购</view>

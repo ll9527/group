@@ -69,44 +69,272 @@
     </scroll-view>
   </view>
   <swiper  current="{{currentTab}}" duration="300"  
-bindchange="bindChange" style="height:{{winHeight-88-50}}px">
-    <swiper-item wx:for="{{6}}">
+bindchange="bindChange" style="height:{{winHeight-88-50}}px" class='bBackground'>
+    <!-- <swiper-item wx:for="{{6}}"> -->
+    <swiper-item >
       <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
         <!-- style="height:{{winHeight-88-50}}px" -->
         <view class='body'>
           <!-- item -->
-          <view class='body_item' wx:for="{{5}}">
+          <view class='body_item' wx:for="{{hotList}}" wx:key="{{index}}">
             <!-- 头部 -->
             <view class='body_item_head'>
               <!-- <image src='/images/15.png'></image> -->
               <!-- <view class='body_item_title'> -->
-              <navigator class='body_item_title' url='/pages/storeDetails/storeDetails'>
-                <view class='body_item_title_1'>没舌头冰淇淋</view>
-                <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view>
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
               </navigator>
               <!-- </view> -->
               <view class='body_item_collect'>
-                <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
                 <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
               </view>
             </view>
             <!-- 图片 -->
             <view class='body_item_images'>
-              <navigator class='body_item_images_navigator' wx:for="{{3}}" url='/pages/productDetails/productDetails'>
-                <image src='/images/15.png'></image>
-                <view>￥ 15.5</view>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
               </navigator>
             </view>
             <!-- 位置 -->
-            <view class='body_item_seat'>
-              <view class='body_item_seat_text'>广东省湛江市海田三路65号</view>
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
               <image src='/images/seat.png'></image>
-            </view>      
+            </view>       -->
           </view>
         </view>
       </scroll-view>
     </swiper-item>  
     
+    <swiper-item >
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- style="height:{{winHeight-88-50}}px" -->
+        <view class='body'>
+          <!-- item -->
+          <view class='body_item' wx:for="{{lianSuoList}}" wx:key="{{index}}">
+            <!-- 头部 -->
+            <view class='body_item_head'>
+              <!-- <image src='/images/15.png'></image> -->
+              <!-- <view class='body_item_title'> -->
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
+              </navigator>
+              <!-- </view> -->
+              <view class='body_item_collect'>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
+                <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
+              </view>
+            </view>
+            <!-- 图片 -->
+            <view class='body_item_images'>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
+              </navigator>
+            </view>
+            <!-- 位置 -->
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
+              <image src='/images/seat.png'></image>
+            </view>       -->
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>  
+
+
+    <swiper-item >
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- style="height:{{winHeight-88-50}}px" -->
+        <view class='body'>
+          <!-- item -->
+          <view class='body_item' wx:for="{{bianLiList}}" wx:key="{{index}}">
+            <!-- 头部 -->
+            <view class='body_item_head'>
+              <!-- <image src='/images/15.png'></image> -->
+              <!-- <view class='body_item_title'> -->
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
+              </navigator>
+              <!-- </view> -->
+              <view class='body_item_collect'>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
+                <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
+              </view>
+            </view>
+            <!-- 图片 -->
+            <view class='body_item_images'>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
+              </navigator>
+            </view>
+            <!-- 位置 -->
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
+              <image src='/images/seat.png'></image>
+            </view>       -->
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>  
+
+
+    <swiper-item >
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- style="height:{{winHeight-88-50}}px" -->
+        <view class='body'>
+          <!-- item -->
+          <view class='body_item' wx:for="{{fuShiList}}" wx:key="{{index}}">
+            <!-- 头部 -->
+            <view class='body_item_head'>
+              <!-- <image src='/images/15.png'></image> -->
+              <!-- <view class='body_item_title'> -->
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
+              </navigator>
+              <!-- </view> -->
+              <view class='body_item_collect'>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
+                <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
+              </view>
+            </view>
+            <!-- 图片 -->
+            <view class='body_item_images'>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
+              </navigator>
+            </view>
+            <!-- 位置 -->
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
+              <image src='/images/seat.png'></image>
+            </view>       -->
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>  
+
+
+    <swiper-item >
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- style="height:{{winHeight-88-50}}px" -->
+        <view class='body'>
+          <!-- item -->
+          <view class='body_item' wx:for="{{shiList}}" wx:key="{{index}}">
+            <!-- 头部 -->
+            <view class='body_item_head'>
+              <!-- <image src='/images/15.png'></image> -->
+              <!-- <view class='body_item_title'> -->
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
+              </navigator>
+              <!-- </view> -->
+              <view class='body_item_collect'>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
+                <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
+              </view>
+            </view>
+            <!-- 图片 -->
+            <view class='body_item_images'>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
+              </navigator>
+            </view>
+            <!-- 位置 -->
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
+              <image src='/images/seat.png'></image>
+            </view>       -->
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>  
+
+    <swiper-item >
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- style="height:{{winHeight-88-50}}px" -->
+        <view class='body'>
+          <!-- item -->
+          <view class='body_item' wx:for="{{shuiGuoList}}" wx:key="{{index}}">
+            <!-- 头部 -->
+            <view class='body_item_head'>
+              <!-- <image src='/images/15.png'></image> -->
+              <!-- <view class='body_item_title'> -->
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
+              </navigator>
+              <!-- </view> -->
+              <view class='body_item_collect'>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
+                <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
+              </view>
+            </view>
+            <!-- 图片 -->
+            <view class='body_item_images'>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
+              </navigator>
+            </view>
+            <!-- 位置 -->
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
+              <image src='/images/seat.png'></image>
+            </view>       -->
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>  
+
+    <swiper-item >
+      <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
+        <!-- style="height:{{winHeight-88-50}}px" -->
+        <view class='body'>
+          <!-- item -->
+          <view class='body_item' wx:for="{{lianSuoList}}" wx:key="{{index}}">
+            <!-- 头部 -->
+            <view class='body_item_head'>
+              <!-- <image src='/images/15.png'></image> -->
+              <!-- <view class='body_item_title'> -->
+              <navigator class='body_item_title' url="{{'/pages/storeDetails/storeDetails?sellerid='+item[0].id}}">
+                <view class='body_item_title_1'>{{item[0].titleName}}</view>
+                <!-- <view class='body_item_title_2'>来这里吃冰淇淋，小心没舌头哦！</view> -->
+              </navigator>
+              <!-- </view> -->
+              <view class='body_item_collect'>
+                <!-- <view class='{{showCollect?"body_item_collect1":"body_item_collect2"}}' bindtap='switchCollect'>{{showCollect?"收藏":"已收藏"}}</view> -->
+                <!-- <view class='body_item_collect2' wx:if="{{showCollect}}" bindtap='switchCollect'>已收藏</view> -->
+              </view>
+            </view>
+            <!-- 图片 -->
+            <view class='body_item_images'>
+              <navigator class='body_item_images_navigator' wx:for="{{item[0].productList}}" url='/pages/productDetails/productDetails?productid={{item.id}}'>
+                <image src="{{url+'/image/'+item.productImgList[0].image}}"></image>
+                <view>￥ {{item.price}}</view>
+              </navigator>
+            </view>
+            <!-- 位置 -->
+            <!-- <view class='body_item_seat'>
+              <view class='body_item_seat_text'>{{item.}}</view>
+              <image src='/images/seat.png'></image>
+            </view>       -->
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>  
+
+
+
     <!-- <swiper-item>
       <scroll-view scroll-y="{{true}}" scroll-top="{{topNum}}" scroll-with-animation="{{ true}}" style="height:100%;overflow:scroll">
         <view>aa</view>

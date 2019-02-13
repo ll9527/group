@@ -21,6 +21,16 @@ Page({
    */
   onLoad: function (options) {
     getApp().isLogin();
+    //查询通过sellerid查已上架的商品
+    wx.request({
+      url: getApp().url+'/seller/selectFromSeller',
+      data: {
+        sellerid: wx.getStorageSync("sellerId")
+      },
+      success: function(res) {
+        console.log(res.data)
+      },
+    })
   },
 
 })

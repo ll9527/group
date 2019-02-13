@@ -76,15 +76,17 @@
 } 
 /* 主体显示内容盒子 */
 .body{
-  padding:0 20rpx;
+  /* padding:0 20rpx; */
   overflow: hidden;
-  background-color: rgb(241, 241, 241);
+  /* background-color: rgb(241, 241, 241); */
 }
 .body_item{
   width: 670rpx;
   /* position: absolute; */
+  margin: 0 auto;
   margin-top: 20rpx;
   padding: 20rpx;
+  border-radius: 8rpx;
   background-color: rgb(255, 255, 255);
 }
 /* 头部 */
@@ -194,4 +196,8 @@
   width: 16rpx;
   height: 20rpx;
   padding-left: 220rpx;
+}
+
+.bBackground{
+  background-color: rgb(241, 241, 241);
 }
