@@ -25,8 +25,8 @@
           <view>已销{{item.salesVolume}}件</view>
         </view>
         <view class='item_text_1_1_right'>
-          <view class='groupLogo'>团</view>
-          <view>￥{{item.groupPrice}}</view>
+          <view class='groupLogo' wx:if="{{item.isGroup==1}}">团</view>
+          <view wx:if="{{item.isGroup==1}}">￥{{item.groupPrice}}</view>
         </view>
       </view>
     </view>

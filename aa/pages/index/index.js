@@ -48,8 +48,93 @@ Page({
     });
     // 获得热门商品
     wx.request({
-      url: getApp().url+'',
+      url: getApp().url +'/product/selectHotP',
+      success: function(res){
+        console.log(res)
+        that.setData({
+          hotList: res.data
+        })
+      }
     })
+    // 服饰商品
+    wx.request({
+      url: getApp().url + '/product/selectLevel1P',
+      data:{
+        classid: 1
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          clothesList: res.data
+        })
+      }
+    })
+    // 鞋包商品
+    wx.request({
+      url: getApp().url + '/product/selectLevel1P',
+      data: {
+        classid: 2
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          xieBaoList: res.data
+        })
+      }
+    })
+    // 电器商品
+    wx.request({
+      url: getApp().url + '/product/selectLevel1P',
+      data: {
+        classid: 3
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          dianQiList: res.data
+        })
+      }
+    })
+    // 零食商品
+    wx.request({
+      url: getApp().url + '/product/selectLevel1P',
+      data: {
+        classid: 4
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          linShiList: res.data
+        })
+      }
+    })
+    // 百货商品
+    wx.request({
+      url: getApp().url + '/product/selectLevel1P',
+      data: {
+        classid: 5
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          baiHuoList: res.data
+        })
+      }
+    })
+    // 数码商品
+    wx.request({
+      url: getApp().url + '/product/selectLevel1P',
+      data: {
+        classid: 6
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          shuMaList: res.data
+        })
+      }
+    })
+    
   },
   /** 
   * 滑动切换tab 
