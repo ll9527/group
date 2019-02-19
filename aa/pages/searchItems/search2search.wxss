@@ -25,6 +25,9 @@ page{
   height: 64rpx;
   font-size: 28rpx;
 }
+.input_text{
+  line-height: 64rpx;
+}
 .searchFrame_images{
   width: 70rpx;
   height: 64rpx;

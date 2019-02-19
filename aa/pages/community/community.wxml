@@ -9,7 +9,7 @@
                   <view class="weui-search-bar__box">
                       <!-- <icon class="weui-icon-search_in-box" type="search" size="14"></icon> -->
                       <image src="/images/search.png" class="weui-icon-search_in-box" style="width:30rpx;height:30rpx;"></image>
-                      <input type="text" class="weui-search-bar__input" style="vertical-align:top" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                      <input type="text" class="weui-search-bar__input" style="vertical-align:top" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="搜索" bindconfirm="search"/>
                       <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
                           <icon type="clear" size="14"></icon>
                       </view>

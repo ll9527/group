@@ -22,7 +22,7 @@ Page({
         sellerid: options.sellerid
       },
       success:function(res){
-        console.log(res.data)
+        console.log(1+res.data)
         that.setData({
           // 商品详情信息
           sellsMessage: res.data,

@@ -164,7 +164,19 @@ Page({
         console.log(that.data.shuiGuoList)
       }
     })
-
+  },
+  // 点击搜索后执行
+  search: function (res) {
+    var that = this
+    console.log(res.detail)
+    wx.navigateTo({
+      url: '/pages/searchItems/search2search?body=' + res.detail.value,
+      // success: function(res){
+      //   that.setData({
+      //     inputShowed: false
+      //   })
+      // }
+    })
   },
   // 点击收藏
   switchCollect:function(e){

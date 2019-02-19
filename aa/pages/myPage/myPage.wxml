@@ -31,7 +31,7 @@
         <image src='/images/jifen.png'></image>
         <view>
           <view class='box1_bottom_1_title'>业绩积分></view> 
-          <view class='box1_bottom_1_num' style='color: rgb(255, 168, 0);'>6356</view>         
+          <view class='box1_bottom_1_num' style='color: rgb(255, 168, 0);'>{{score}}</view>         
         </view>
       </view>
     </view>
@@ -99,11 +99,13 @@
       <view>我的钱包</view>
       <view>></view>
     </navigator>
+<!-- -------------------------------------------------------------
     <view class='box3_item_border'></view>
     <navigator class='box3_item' url='/pages/myCollection/myCollection'>
       <view>我的收藏</view>
       <view>></view>
     </navigator>
+-------------------------------------------------------------- -->
     <!-- <view class='box3_item_border'></view>
     <navigator class='box3_item'>
       <view>我的评论</view>
@@ -114,11 +116,11 @@
       <view>我的分享</view>
       <view>></view>
     </navigator>
-    <view class='box3_item_border'></view>
+    <!-- <view class='box3_item_border'></view>
     <navigator class='box3_item' url='/pages/userData/userData'>
       <view>个人资料</view>
       <view>></view>
-    </navigator>
+    </navigator> -->
     <view class='box3_item_border'></view>
     <navigator class='box3_item' url='/pages/receivingAddress/receivingAddress'>
       <view>收货地址</view>
@@ -134,11 +136,16 @@
       <view>商家后台</view>
       <view>></view>
     </navigator>
-    <view class='box3_item_border'></view>
-    <navigator class='box3_item' url='/pages/admin/admin'>
+    <view class='box3_item_border' wx:if="{{userData.info==1}}"></view>
+    <navigator class='box3_item' url='/pages/admin/admin' wx:if="{{userData.info==1}}">
       <view>管理员后台</view>
       <view>></view>
     </navigator>
+    <view class='box3_item_border'></view>
+    <view class='box3_item' catchtap='signOut'>
+      <view>退出登陆</view>
+      <view>></view>
+    </view>
   </view>
   <view class='box4'>
     <view class='box4_text'>客服热线：</view>

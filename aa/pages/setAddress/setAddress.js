@@ -25,10 +25,73 @@ Page({
    * 提交表单
    */
   submit: function(e){
+    // var address = ""
+    var that = this
+    var userid;
     console.log(e);
-    wx.navigateTo({
-      url: '/pages/receivingAddress/receivingAddress'
-    })
+    // 空=false
+    if(!e.detail.value.uAddress){
+      console.log("空")
+      wx.showToast({
+        title: '请输入地址',
+        icon: 'loading',
+        duration: 1000,
+        mask: true
+      })
+      return
+    }
+    if (!e.detail.value.uname) {
+      console.log("空")
+      wx.showToast({
+        title: '请输入收货人',
+        icon: 'loading',
+        duration: 1000,
+        mask: true
+      })
+      return
+    }
+    if (!e.detail.value.uphone) {
+      console.log("空")
+      wx.showToast({
+        title: '请输入手机',
+        icon: 'loading',
+        duration: 1000,
+        mask: true
+      })
+      return
+    }
+    for (var i in that.data.region){
+      that.data.region[i]
+    }
+        wx.getStorage({
+          key: 'userData',
+          success: function(res) {
+            console.log(res.data.userId)
+            wx.request({
+              url: getApp().url + '/user/insertAddress',
+              data: {
+                userId: res.data.userId,
+                address: that.data.region.join("")+e.detail.value.uAddress,
+                // 这个是电话
+                userName: e.detail.value.uphone
+              },
+              success:function(res){
+                if(res.data.info==1){
+                  wx.redirectTo({
+                    url: '/pages/receivingAddress/receivingAddress'
+                  })
+                }else{
+                  wx.showToast({
+                    title: '保存失败',
+                    icon: 'loading',
+                    duration: 1000,
+                    mask: true
+                  })
+                }
+              }
+            })
+          },
+        })
   },
   /**
    * 省市区

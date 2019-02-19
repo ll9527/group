@@ -25,7 +25,8 @@
   display: flex;
 } 
 .categories .category {
-  width: 125rpx;
+  /* width: 125rpx; */
+  padding: 0 20rpx;
   height: 88rpx;
   font-size: 32rpx;
   display: inline-block;

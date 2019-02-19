@@ -50,7 +50,10 @@
     </view>
   </view>
   <view>
-    <navigator class='box4' url='/pages/storeDetails/storeDetails?sellerid={{productDetail.sellerid}}'>
+<!-- --------------------------------------------- -->
+    <!-- <navigator class='box4' url='/pages/storeDetails/storeDetails?sellerid={{productDetail.sellerid}}'> -->
+    <navigator class='box4'>
+<!-- -------------------------------------------- -->
       <view class='box4_1'>
         <!-- <image class='box4_1_image' src='/images/dptx.png'></image> -->
         <view class='box4_1_text'>{{productDetail.sellerTitleName}}</view>

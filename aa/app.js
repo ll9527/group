@@ -1,10 +1,10 @@
 //app.js
 App({
-  // url: "https://www.gongshop.com.cn",
+  url: "https://www.gongshop.com.cn",
   // url: "http://192.168.0.105:8080",
   // url: "http://192.168.0.117:8080",
   // url: "http://192.168.0.113:8080",
-  url: "http://127.0.0.1:8080",
+  // url: "http://127.0.0.1:8080",
   /**
   * 登录验证
   */

@@ -8,7 +8,7 @@
     "pages/admin/admin",
     
     "pages/sellerManager/register",
-
+    "pages/searchItems/search2search",
     
 
     "pages/login/login",
@@ -49,7 +49,7 @@
 
     "pages/setUp/setUp",
     "pages/community/community",
-    
+    "pages/community/community1",
     "pages/msg/msg",
     "pages/msg/msg_success",
     "pages/msg/msg_fail",
@@ -83,8 +83,8 @@
     },{
       "iconPath": "images/sq@2x.png",
       "selectedIconPath": "images/sqIcon@2x.png",
-      "pagePath": "pages/community/community",
-      "text": "社区"
+      "pagePath": "pages/community/community1",
+      "text": "本地"
     },{
       "iconPath": "images/my.png",
       "selectedIconPath": "images/myIcon.png",

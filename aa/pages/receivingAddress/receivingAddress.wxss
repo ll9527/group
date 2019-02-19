@@ -34,6 +34,6 @@ page{
   font-size: 28rpx;
 }
 .box2_text_2{
-  font-size: 20rpx;
+  font-size: 24rpx;
   color: rgb(128, 128, 128);
 }

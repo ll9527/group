@@ -103,9 +103,9 @@ Page({
    * 跳转开团页面
    */
   goGroup: function(e){
-    wx.navigateTo({
-      url: '/pages/goGroup/goGroup'
-    })
+    // wx.navigateTo({
+    //   url: '/pages/goGroup/goGroup'
+    // })
   },
   /**
    * 跳转店铺首页

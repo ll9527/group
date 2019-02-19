@@ -15,6 +15,19 @@ Page({
     listId:"",
     scrollTop:0
   },
+  // 点击搜索后执行
+  search: function(res){
+    var that = this
+    console.log(res.detail)
+    wx.navigateTo({
+      url: '/pages/searchItems/search2search?body=' + res.detail.value,
+      // success: function(res){
+      //   that.setData({
+      //     inputShowed: false
+      //   })
+      // }
+    })
+  },
   //点击输入框触发的方法
   showInput: function () {
     this.setData({

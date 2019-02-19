@@ -1,13 +1,14 @@
 <view>
   <view class='head'>
-    <!-- <view class='search'>
+    <view class='search'>
       <view class='searchFrame'>
-        <input class='searchFrame_input' placeholder='搜索'></input>
+        <view class='searchFrame_input input_text'>{{pname}}</view>
+        <!-- <input class='searchFrame_input' value='{{pname}}'></input>
         <view class='searchFrame_images'>
           <image src='/images/search.png'></image>
-        </view>
+        </view> -->
       </view>
-    </view> -->
+    </view>
     <view class='search tabBar'>
       <view class="text_box {{tab==1?'text_box_on':''}}" data-tab='1' catchtap='rank'>综合</view>
       <view class="text_box {{tab==2?'text_box_on':''}}" data-tab='2' catchtap='rank'>销量</view>

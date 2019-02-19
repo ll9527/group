@@ -1,4 +1,4 @@
-// pages/searchItems/searchItems.js
+// pages/searchItems/search2search.js
 Page({
 
   /**
@@ -12,32 +12,31 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (e) {
-    var that = this;
+  onLoad: function (res) {
+    var that = this
     getApp().isLogin();
-    console.log(e);
-
-    // 综合排序List
+    that.setData({
+      pname: res.body,
+    })
+    console.log(res)
+    // 综合
     wx.request({
-      url: getApp().url+'/product/selectLevel2P',
+      url: getApp().url +'/product/serchProduct',
       data: {
-        classid: e.search,
+        pname: res.body,
         operationCode: 1
       },
-      // method: "POST",
-      success:function(res){
-        console.log(res)
+      success: function(e){
         that.setData({
-          productList: res.data,
-          // url: getApp().url+"/image/"
+          productList: e.data
         })
       }
     })
     // 销量排序List
     wx.request({
-      url: getApp().url + '/product/selectLevel2P',
+      url: getApp().url + '/product/serchProduct',
       data: {
-        classid: e.search,
+        pname: res.body,
         operationCode: 2
       },
       // method: "POST",
@@ -50,9 +49,9 @@ Page({
       }
     }) // 价格排序List
     wx.request({
-      url: getApp().url + '/product/selectLevel2P',
+      url: getApp().url + '/product/serchProduct',
       data: {
-        classid: e.search,
+        pname: res.body,
         operationCode: 3
       },
       // method: "POST",
@@ -66,7 +65,7 @@ Page({
     })
   },
   // 选择排序方式
-  rank: function(e){
+  rank: function (e) {
     var that = this
     console.log(e)
     that.setData({

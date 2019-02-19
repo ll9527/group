@@ -12,6 +12,29 @@ Page({
    */
   onLoad(e){
     getApp().isLogin();
+    var that = this
+    wx.getStorage({
+      key: 'userData',
+      success: function(res) {
+        console.log(res)
+        wx.request({
+          url: getApp().url +'/user/selectMoney',
+          data: {
+            userid: res.data.userId
+          },
+          success:function(res){
+            that.setData({
+              money: res.data
+            })
+          }
+        })
+      },
+      fail: function(){
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }
+    })
   },
   /**
    * 提现功能

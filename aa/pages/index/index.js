@@ -29,12 +29,14 @@ Page({
     currentTab: 0,
     navScrollLeft: 0,
     //置顶初始高度
-    topNum : 0
+    topNum : 0,
+    // 二级目录
+    level2List:""
   },
   /**
-   * 加载后运行
+   * 页面第一次加载触发   
    */
-  onLoad : function(e){
+  onLoad: function(res){
     var that = this;
     // 获取系统信息     
     wx.getSystemInfo({
@@ -46,6 +48,24 @@ Page({
         console.log(res.windowHeight);
       }
     });
+    // 获取所有的二级目录
+    wx.request({
+      url: getApp().url +'/classfiy/selectTwo',
+      success: function(res){
+        console.log(res)
+        console.log(res.data)
+        that.setData({
+          level2List: res.data
+        })
+        console.log(that.data.level2List)
+      }
+    })
+  },
+  /**
+   * 页面显示/切入前台时触发。
+   */
+  onShow : function(e){
+    var that = this;
     // 获得热门商品
     wx.request({
       url: getApp().url +'/product/selectHotP',
@@ -56,106 +76,64 @@ Page({
         })
       }
     })
-    // 服饰商品
+  },
+  // 获取二级目录下的所有商品函数
+  select2PList: function(id,that){
     wx.request({
-      url: getApp().url + '/product/selectLevel1P',
-      data:{
-        classid: 1
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          clothesList: res.data
-        })
-      }
-    })
-    // 鞋包商品
-    wx.request({
-      url: getApp().url + '/product/selectLevel1P',
+      url: getApp().url + '/product/selectLevel2P',
       data: {
-        classid: 2
+        classid: id,
+        operationCode: 0
       },
       success: function (res) {
         console.log(res)
         that.setData({
-          xieBaoList: res.data
+          pList: res.data
         })
       }
     })
-    // 电器商品
-    wx.request({
-      url: getApp().url + '/product/selectLevel1P',
-      data: {
-        classid: 3
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          dianQiList: res.data
-        })
-      }
-    })
-    // 零食商品
-    wx.request({
-      url: getApp().url + '/product/selectLevel1P',
-      data: {
-        classid: 4
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          linShiList: res.data
-        })
-      }
-    })
-    // 百货商品
-    wx.request({
-      url: getApp().url + '/product/selectLevel1P',
-      data: {
-        classid: 5
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          baiHuoList: res.data
-        })
-      }
-    })
-    // 数码商品
-    wx.request({
-      url: getApp().url + '/product/selectLevel1P',
-      data: {
-        classid: 6
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          shuMaList: res.data
-        })
-      }
-    })
-    
   },
   /** 
   * 滑动切换tab 
   */
   bindChange: function (e) {
-    var cur = e.detail.current;
-    var that = this;
+    var that = this
+    if (e.detail.current > 4){
+      var cur = e.detail.current;
+    }else{
+      var cur = 4
+    }
     that.setData({
       currentTab: e.detail.current,
-      navScrollLeft: (cur - 2) * 125
+      navScrollLeft: (cur - 4) * 75
     });
+    console.log("e.detail.current:"+e.detail.current)
+    if (e.detail.current > 0){
+      console.log("that.data.level2List[e.detail.current - 1].classId:" + that.data.level2List[e.detail.current - 1].classId)
+      var cid = that.data.level2List[e.detail.current - 1].classId
+      that.select2PList(cid, that)
+    }
+    that.setData({
+      currentTab: e.detail.current,
+      navScrollLeft: (cur - 4) * 75
+    });
+    // console.log("that.data.level2List[e.detail.current - 1].classId:" + JSON.parse(JSON.stringify(that.data.level2List[e.detail.current - 1])).classId)
+    
+
+    console.log("bindChange:"+this.data.navScrollLeft)
   },
   /** 
    * 点击tab切换 
    */
   swichNav: function (e) {
+    console.log(e)
     var cur = e.target.dataset.current;
     var that = this;
-    this.setData({
-      navScrollLeft: (cur - 2) * 125
-    })
+    if(cur > 4){
+      this.setData({
+        navScrollLeft: (cur - 4) * 75
+      })
+    }
     if (this.data.currentTab === cur) {
       return false;
     } else {
@@ -163,6 +141,7 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+    console.log("swichNav:"+this.data.navScrollLeft)
   },
   /**
    * 跳转超市区事件
@@ -203,5 +182,5 @@ Page({
     this.setData({
       topNum : 0
     })
-  }
+  },
 })
